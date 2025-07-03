@@ -143,7 +143,6 @@ footer {
     <h3>Taxas de Juros</h3>
     <ul>
       <li>20% ao mês</li>
-      <li>2% ao dia</li>
     </ul>
   </section>  <section class="simulacao" id="simulador">
     <h3>Simulação de Empréstimo</h3>
@@ -154,8 +153,7 @@ footer {
       <input type="number" id="prazo" required>
       <label>Tipo de Juros:</label>
       <select id="tipo">
-        <option value="dia">2% ao dia</option>
-        <option value="mes">20% ao mês</option>
+        <option value="mês">20% ao mês</option>
       </select>
       <button type="button" onclick="simularEmprestimo()">Calcular</button>
       <p id="resultado"></p>
@@ -173,8 +171,8 @@ footer {
       const valor = parseFloat(document.getElementById('valor').value);
       const prazo = parseInt(document.getElementById('prazo').value);
       const tipo = document.getElementById('tipo').value;
-      let taxa = tipo === 'dia' ? 0.2 : 0.20;
-      let periodo = tipo === 'dia' ? prazo : prazo / 30;
+      let taxa = tipo === 'mes' ? 0.2 : 0.20;
+      let periodo = tipo === 'mes' ? prazo : prazo / 30;
 
       if (isNaN(valor) || isNaN(prazo) || valor <= 0 || prazo <= 0) {
         document.getElementById('resultado').textContent = "Por favor, insira valores válidos.";
@@ -182,7 +180,7 @@ footer {
       }
 
       const total = valor * Math.pow(1 + taxa, periodo);
-      const tipoTexto = tipo === 'dia' ? '2% ao dia' : '20% ao mês';
+      const tipoTexto = tipo === 'mes' ?   '20% ao mês';
 
       const resultadoTexto = `Total a pagar: R$ ${total.toFixed(2)} usando ${tipoTexto}`;
       document.getElementById('resultado').textContent = resultadoTexto;
