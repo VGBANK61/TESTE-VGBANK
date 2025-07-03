@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Histórico de Simulações - VGBank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Histórico de Simulações</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="simulador.html">Simulador</a>
+      <a href="historico.html">Histórico</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="historico"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 VGBank</p>
+  </footer>
+
+  <script>
+    const dados = JSON.parse(localStorage.getItem("ultimaSimulacao"));
+    if (dados) {
+      document.getElementById("historico").innerHTML = `
+        <h3>Última Simulação</h3>
+        <p>Valor: R$ ${dados.valor}</p>
+        <p>Juros: ${dados.juros * 100}%</p>
+        <p>Parcelas: ${dados.parcelas}</p>
+        <p>Resultado: ${dados.resultado}</p>
+        <p>Mensagem: ${dados.mensagem}</p>
+      `;
+    } else {
+      document.getElementById("historico").innerText = "Nenhuma simulação encontrada.";
+    }
+  </script>
+</body>
+</html>
