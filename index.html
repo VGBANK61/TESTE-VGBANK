@@ -173,7 +173,7 @@ footer {
       const valor = parseFloat(document.getElementById('valor').value);
       const prazo = parseInt(document.getElementById('prazo').value);
       const tipo = document.getElementById('tipo').value;
-      let taxa = tipo === 'dia' ? 0.02 : 0.20;
+      let taxa = tipo === 'dia' ? 0.2 : 20;
       let periodo = tipo === 'dia' ? prazo : prazo / 30;
 
       if (isNaN(valor) || isNaN(prazo) || valor <= 0 || prazo <= 0) {
