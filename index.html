@@ -87,7 +87,7 @@
       <label>Tipo de Juros:</label>
       <select id="tipo">
         <option value="dia">2% ao dia</option>
-        <option value="mes">20% ao mês</option>
+        <option value="mes">15% ao mês</option>
       </select>
 
       <button type="button" onclick="simularEmprestimo()">Calcular</button>
@@ -124,8 +124,8 @@
         taxa = 0.02; // 2% ao dia
         tipoTexto = '2% ao dia';
       } else if (tipo === 'mes') {
-        taxa = 0.20; // 20% ao mês
-        tipoTexto = '20% ao mês';
+        taxa = 0.15; // 15% ao mês
+        tipoTexto = '15% ao mês';
       }
 
       // Cálculo de juros compostos
